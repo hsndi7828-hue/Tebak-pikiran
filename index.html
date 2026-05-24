@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="CSS/tebak-pikiran.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+ <div class="form-container kotak">
+  <h2>gua bisa tebak pikiran lu</h2>
+  <h3>pikirkan angka</h3>
+  <div class="input-box">
+    <input type="number" placeholder=" " id="tebak">
+    <button type="button" class="tombol" id="tombol" onclick="tebak()" disabled>
+      tebak
+  </button>
+    
+    <p id="hasil"></p>
+    
+  </div>
+
+</div>
+
+</body>
+
+    
+   <script>
+   
+   let input = document.getElementById("tebak");
+let tombol = document.getElementById("tombol");
+
+input.addEventListener("input", function() {
+
+  if (input.value.trim() !== "") {
+    tombol.disabled = false;
+  } else {
+    tombol.disabled = true;
+  }
+
+});
+
+tombol.addEventListener("dblclick", function() {
+
+ tombol.innerHTML = "sudah?";
+});
+   
+  function tebak() {
+  let isi = document.getElementById("tebak").value;
+
+  tombol.innerHTML = "loading. . . ";
+  
+  tombol.disabled = true;
+    
+  setTimeout(function() {
+    
+    let angka = document.getElementById("tebak").value;
+    
+    window.location.href = "hasil.html?angka=" + isi;
+    
+  }, 2000);
+  
+}
+
+   </script>
+
+</html>
